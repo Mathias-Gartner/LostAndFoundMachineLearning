@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D3A0AB3-A60A-4DB7-906D-04DC3502A9AA}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NeuralMatch</RootNamespace>
+    <AssemblyName>NeuralMatch</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>anycpu</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accord, Version=3.3.1.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7">
+      <HintPath>..\packages\Accord.3.3.1-alpha\lib\net45\Accord.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.MachineLearning, Version=3.3.1.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7">
+      <HintPath>..\packages\Accord.MachineLearning.3.3.1-alpha\lib\net45\Accord.MachineLearning.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math, Version=3.3.1.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7">
+      <HintPath>..\packages\Accord.Math.3.3.1-alpha\lib\net45\Accord.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7">
+      <HintPath>..\packages\Accord.Math.3.3.1-alpha\lib\net45\Accord.Math.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Neuro, Version=3.3.1.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7">
+      <HintPath>..\packages\Accord.Neuro.3.3.1-alpha\lib\net45\Accord.Neuro.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Statistics, Version=3.3.1.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7">
+      <HintPath>..\packages\Accord.Statistics.3.3.1-alpha\lib\net45\Accord.Statistics.dll</HintPath>
+    </Reference>
+    <Reference Include="ColorMine, Version=1.1.3.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\ColorMine.1.1.3.0\lib\ColorMine.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.6.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
+      <HintPath>..\packages\log4net.2.0.6\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.2-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Rubicon.NovaFind.MatchService.Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\_lib\Rubicon.NovaFind.MatchService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CsvExporter.cs" />
+    <Compile Include="DeserializedData.cs" />
+    <Compile Include="IDataLoader.cs" />
+    <Compile Include="IDeserializedData.cs" />
+    <Compile Include="IItemMapper.cs" />
+    <Compile Include="IItemMapperSettings.cs" />
+    <Compile Include="IItemMatcher.cs" />
+    <Compile Include="ILearner.cs" />
+    <Compile Include="ItemMapperSettings.cs" />
+    <Compile Include="JsonDataLoader.cs" />
+    <Compile Include="JsonPairDataLoader.cs" />
+    <Compile Include="LearningData.cs" />
+    <Compile Include="LoggingDecisionTreeMatcher.cs" />
+    <Compile Include="LoggingNeuralNetworkMatcher.cs" />
+    <Compile Include="MetadataDeserializer.cs" />
+    <Compile Include="NeuralNetworkItemMatcher.cs" />
+    <Compile Include="MatchedItemsMapper.cs" />
+    <Compile Include="MatchingItemMatcher.cs" />
+    <Compile Include="MatchingPair.cs" />
+    <Compile Include="NeuralNetworkLearner.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomNotMatchingItemMatcher.cs" />
+    <Compile Include="ReindexDeserializer.cs" />
+    <Compile Include="BinaryDataLoader.cs" />
+    <Compile Include="DecisionTreeLearner.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
